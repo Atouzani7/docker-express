@@ -1,0 +1,13 @@
+# Developpement
+services:
+    server:
+        build: ./server
+        ports: 
+          - 5050:5000
+        command: npm run dev
+        volumes: # Volume permet de lier le disque de la machine à celui du container
+            - ./server/src/:/app/src/ 
+    mongodb:
+        image: mongo
+        volumes:
+            - ./data:/data/db
